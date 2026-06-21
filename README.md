@@ -2,6 +2,10 @@
 
 [![Uygulamayı İndir](https://img.shields.io/badge/%E2%A4%87%20İndir-Download%20ZIP-success?style=for-the-badge&logo=github)](https://github.com/alielcbk/huawei-ttl-changer/archive/refs/heads/main.zip)
 
+
+![Uploading screencapture-localhost-3000-2026-06-22-01_41_05.png…]()
+
+
 Huawei modemlerinizin TTL değerlerini sabitlemek, IMEI ayarlarını güncellemek ve SIM kilitlerini açmak için modern ve şık bir arayüze sahip web tabanlı yerel yönetim uygulaması.
 
 This is a web-based local desktop application designed to easily fix TTL values, update IMEI settings (for repair purposes), and unlock SIM locks on Huawei modems.
