@@ -1,66 +1,61 @@
-# 📡 Huawei Modem Kolay TTL & IMEI Değiştirici (Control Panel)
+# 📡 Huawei Modem Easy TTL & IMEI Changer (Control Panel)
 
-[![Uygulamayı İndir](https://img.shields.io/badge/%E2%A4%87%20İndir-Download%20ZIP-success?style=for-the-badge&logo=github)](https://github.com/alielcbk/huawei-ttl-changer/archive/refs/heads/main.zip)
+[![Download ZIP](https://img.shields.io/badge/%E2%A4%87%20Download-Download%20ZIP-success?style=for-the-badge&logo=github)](https://github.com/alielcbk/huawei-ttl-changer/archive/refs/heads/main.zip)
 
-
-
-
-Huawei modemlerinizin TTL değerlerini sabitlemek, IMEI ayarlarını güncellemek ve SIM kilitlerini açmak için modern ve şık bir arayüze sahip web tabanlı yerel yönetim uygulaması.
-
-This is a web-based local desktop application designed to easily fix TTL values, update IMEI settings (for repair purposes), and unlock SIM locks on Huawei modems.
+A web-based local desktop application designed to easily fix TTL values, update IMEI settings (for repair purposes), and unlock SIM locks on Huawei modems.
 
 ---
 
-### 🖥️ Arayüz Görseli (Interface Screenshot)
-![Huawei Modem Kontrol Paneli Arayüzü](public/app_screenshot.png)
+### 🖥️ Interface Screenshot
+![Huawei Modem Control Panel](public/app_screenshot.png)
 
 ---
 
-## ✨ Özellikler (Features)
+## ✨ Features
 
-*   🌐 **Çift Dil Desteği (TR / EN):** Arayüzün sağ üst köşesinden dinamik olarak Türkçe ve İngilizce dilleri arasında geçiş yapabilirsiniz.
-*   🚀 **TTL Sabitleme (TTL Fixing):**
-    *   **Değer: 64** $\rightarrow$ Sosyal medya (Instagram, YouTube vb.) ve paylaşılamayan paketlerinizi bilgisayarınızda sanki doğrudan modemden giriyormuş gibi kullanmak için.
-    *   **Değer: 63** $\rightarrow$ Operatörlerin sadece hotspot (paylaşım) tanımlı paketlerini bilgisayarınızda tüketmek için.
-*   🔧 **IMEI Güncelleme (IMEI Changer):** Cihazın orijinal kimliğini tamir amaçlı geri yüklemek için 15 haneli form kontrolüyle güvenli IMEI yazma.
-*   🔓 **SIM Kilit Açma (Modem Unlock):** Şebeke kısıtlamalarını kaldırma komutlarını tek tıkla gönderme.
-*   🔄 **Modem Yeniden Başlatma:** Ayarların aktif olması için modemi güvenli şekilde yeniden başlatma komutu.
-*   📟 **Canlı ADB Terminali:** Arka planda çalışan ADB işlemlerinin tüm çıktılarını canlı olarak arayüzdeki terminal kutusundan izleme.
-*   🎨 **Premium Tasarım:** Koyu tema (Dark Mode) üzerine kurulmuş modern Glassmorphism (cam efekti) tasarımı ve yumuşak geçiş efektleri.
-
----
-
-## 🛠️ Kurulum ve Çalıştırma (Setup & Run)
-
-### Gereksinimler (Requirements)
-*   [Node.js](https://nodejs.org/) (Sürüm 16 veya üzeri tavsiye edilir)
-
-### Çalıştırma (Running)
-1. Proje klasöründeki `baslat.bat` dosyasına çift tıklayın.
-2. Betik, gerekli Express/Open kütüphanelerini otomatik yükleyecek, sunucuyu başlatacak ve web tarayıcınızı otomatik olarak `http://localhost:3000` adresinde açacaktır.
+*   🌐 **Bilingual Support (TR / EN):** Dynamically switch between Turkish and English using the toggle button in the top-right corner.
+*   🚀 **TTL Fixing:**
+    *   **Value: 64** $\rightarrow$ *For Social Media & Non-Shareable Packages*: Fix the modem's TTL to 64 so that computer traffic appears to come directly from the modem, utilizing your social media or non-shareable packages.
+    *   **Value: 63** $\rightarrow$ *For Hotspot-Only Packages*: Fix the modem's TTL to 63 so that sharing traffic consumes specifically from your hotspot-designated data packages.
+*   🔧 **IMEI Changer:** Safely update/restore the device's original IMEI for repair purposes with built-in 15-digit validation.
+*   🔓 **SIM Unlock:** Send modem unlock commands to remove network restrictions with a single click.
+*   🔄 **Modem Reboot:** Safely reboot the modem to apply changes.
+*   📟 **Live ADB Logs:** Monitor all active backend ADB commands and outputs in real-time from the built-in terminal console.
+*   🎨 **Premium UI/UX:** Modern dark glassmorphism theme with neon accents, responsive layout, and smooth micro-animations.
 
 ---
 
-## 📂 Proje Yapısı (Project Structure)
+## 🛠️ Setup & Run
+
+### Requirements
+*   [Node.js](https://nodejs.org/) (Version 16 or higher is recommended)
+
+### How to Run
+1. Double-click the `baslat.bat` file in the project folder.
+2. The script will automatically install the required dependencies (Express & Open), start the local backend server, and open your default web browser at `http://localhost:3000`.
+
+---
+
+## 📂 Project Structure
 
 ```text
 ├── bin/
-│   ├── adb.exe             # ADB yürütülebilir dosyası
-│   ├── AdbWinApi.dll       # ADB bağımlılık kütüphanesi
-│   └── AdbWinUsbApi.dll    # USB sürücü kütüphanesi
+│   ├── adb.exe             # ADB executable
+│   ├── AdbWinApi.dll       # ADB dependency library
+│   └── AdbWinUsbApi.dll    # USB driver library
 ├── public/
-│   ├── index.html          # Türkçe ve İngilizce uyumlu ana arayüz dosyası
-│   ├── style.css           # Premium Glassmorphism CSS tasarımı
-│   ├── app.js              # Dil değiştirme, form doğrulama ve API kontrol kodları
-│   └── screenshot.png      # Arayüz ekran görüntüsü
-├── .gitignore              # Git tarafından izlenmeyecek dosyalar listesi
-├── baslat.bat              # Tek tıkla otomatik modül yükleme ve çalıştırma betiği
-├── package.json            # Proje bağımlılıkları (Express, Open)
-└── server.js               # Node.js Express ADB API backend sunucusu
+│   ├── index.html          # Dynamic multilingual UI front-page
+│   ├── style.css           # Premium Glassmorphism CSS design stylesheet
+│   ├── app.js              # Frontend translation, validation, and API controllers
+│   └── app_screenshot.png  # Application interface screenshot
+├── .gitignore              # Files to be ignored by Git (e.g. node_modules)
+├── baslat.bat              # One-click automatic installer and startup script
+├── package.json            # Project dependencies configuration
+└── server.js               # Node.js Express backend server executing ADB shell commands
+```
 
+---
 
-⚠️ Yasal Uyarı (Legal Warning)
-TR: IMEI değiştirme işlemi yalnızca cihazın bozulan veya kaybolan orijinal IMEI numarasını geri yüklemek (tamir amaçlı) için kullanılmalıdır. Cihazların kimlik bilgilerini yasal olmayan yollarla değiştirmek suç teşkil edebilir. Bu işlemin tüm yasal sorumluluğu tamamen kullanıcıya aittir.
+## ⚠️ Legal Warning
 
-EN: The IMEI change process should only be used to restore the original, corrupted, or lost IMEI number of the device (for repair purposes). Altering device identification details illegally may constitute a crime. All legal responsibility belongs to the user.
-
+The IMEI change process should only be used to restore the original, corrupted, or lost IMEI number of the device (for repair purposes). Altering device identification details illegally may constitute a crime. All legal responsibility belongs to the user.
