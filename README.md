@@ -1,65 +1,55 @@
-# 📡 Huawei Modem Easy TTL & IMEI Changer (Control Panel)
+# Huawei Modem TTL & IMEI Changer
+
+A local web interface to configure TTL values, update IMEI, and unlock SIM on Huawei modems via ADB.
 
 [![Download ZIP](https://img.shields.io/badge/%E2%A4%87%20Download-Download%20ZIP-success?style=for-the-badge&logo=github)](https://github.com/alielcbk/huawei-ttl-changer/archive/refs/heads/main.zip)
 
-A web-based local desktop application designed to easily fix TTL values, update IMEI settings (for repair purposes), and unlock SIM locks on Huawei modems.
+## Interface
 
----
+![Interface Screenshot](public/app_screenshot.png)
 
-### 🖥️ Interface Screenshot
-![Huawei Modem Control Panel](public/app_screenshot.png)
+## Features
 
----
+* **Bilingual UI:** Turkish and English support.
+* **TTL Configuration:**
+  * **64**: For Social Media & Non-Shareable Packages.
+  * **63**: For Hotspot-Only Packages.
+* **IMEI Changer:** Update or restore IMEI with 15-digit validation.
+* **SIM Unlock:** Send modem unlock commands.
+* **Modem Reboot:** Reboot the modem to apply changes.
+* **Live ADB Logs:** View backend ADB commands and outputs in real-time.
 
-## ✨ Features
+## Usage
 
-*   🌐 **Bilingual Support (TR / EN):** Dynamically switch between Turkish and English using the toggle button in the top-right corner.
-*   🚀 **TTL Fixing:**
-    *   **Value: 64** $\rightarrow$ *For Social Media & Non-Shareable Packages*: Fix the modem's TTL to 64 so that computer traffic appears to come directly from the modem, utilizing your social media or non-shareable packages.
-    *   **Value: 63** $\rightarrow$ *For Hotspot-Only Packages*: Fix the modem's TTL to 63 so that sharing traffic consumes specifically from your hotspot-designated data packages.
-*   🔧 **IMEI Changer:** Safely update/restore the device's original IMEI for repair purposes with built-in 15-digit validation.
-*   🔓 **SIM Unlock:** Send modem unlock commands to remove network restrictions with a single click.
-*   🔄 **Modem Reboot:** Safely reboot the modem to apply changes.
-*   📟 **Live ADB Logs:** Monitor all active backend ADB commands and outputs in real-time from the built-in terminal console.
-*   🎨 **Premium UI/UX:** Modern dark glassmorphism theme with neon accents, responsive layout, and smooth micro-animations.
+### Method 1: Standalone Executable (Recommended)
+No dependencies required.
 
----
+1. Download the release.
+2. Navigate to the `dist/` directory.
+3. Run `huawei-ttl-changer.exe`.
+4. The interface will open in your default browser at `http://localhost:3000`.
 
-## 🛠️ Setup & Run
+*Note: The `bin/` folder must remain in the same directory as the executable.*
 
-### Method 1: Running the Standalone Executable (No Node.js Required)
-1. Download the compiled release folder.
-2. Open the `dist/` directory and double-click `huawei-ttl-changer.exe`.
-3. The server will start and automatically open the control panel in your default web browser at `http://localhost:3000`.
-*(Note: Ensure the `bin/` folder remains in the same directory as the `.exe` file).*
+### Method 2: From Source
+Requires Node.js 16 or higher.
 
-### Method 2: Running from Source (Requires Node.js)
-1. Ensure you have [Node.js](https://nodejs.org/) (version 16 or higher) installed on your system.
-2. Double-click the `baslat.bat` file in the project root directory.
-3. The script will automatically install dependencies, start the backend server, and launch the web interface at `http://localhost:3000`.
+1. Clone or download the repository.
+2. Run `baslat.bat`.
+3. The script will install dependencies, start the backend, and open `http://localhost:3000`.
 
----
-
-## 📂 Project Structure
+## Directory Structure
 
 ```text
-├── bin/
-│   ├── adb.exe             # ADB executable
-│   ├── AdbWinApi.dll       # ADB dependency library
-│   └── AdbWinUsbApi.dll    # USB driver library
-├── public/
-│   ├── index.html          # Dynamic multilingual UI front-page
-│   ├── style.css           # Premium Glassmorphism CSS design stylesheet
-│   ├── app.js              # Frontend translation, validation, and API controllers
-│   └── app_screenshot.png  # Application interface screenshot
-├── .gitignore              # Files to be ignored by Git (e.g. node_modules)
-├── baslat.bat              # One-click automatic installer and startup script
-├── package.json            # Project dependencies configuration
-└── server.js               # Node.js Express backend server executing ADB shell commands
+├── bin/               # ADB binary and DLLs
+├── public/            # Frontend assets (HTML, CSS, JS, Images)
+├── dist/              # Compiled standalone executable
+├── .gitignore         
+├── baslat.bat         # Startup script for source mode
+├── package.json       
+└── server.js          # Express backend for ADB execution
 ```
 
----
+## Legal Warning
 
-## ⚠️ Legal Warning
-
-The IMEI change process should only be used to restore the original, corrupted, or lost IMEI number of the device (for repair purposes). Altering device identification details illegally may constitute a crime. All legal responsibility belongs to the user.
+The IMEI change function is strictly for restoring the original, corrupted, or lost IMEI number of the device for repair purposes. Altering device identification details illegally may constitute a crime. All legal responsibility belongs to the user.
