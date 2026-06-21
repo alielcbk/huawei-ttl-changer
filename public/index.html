@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="lbl-page-title">Huawei Modem Kolay TTL & Ayar Değiştirici</title>
+    <meta name="description" content="Huawei modemler için Türkçe ve İngilizce kolay ve hızlı TTL değiştirme, IMEI güncelleme ve kilit açma arayüzü.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glass-bg"></div>
+    <div class="container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="brand">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-router"></i>
+                </div>
+                <div>
+                    <h1 id="lbl-app-title">Huawei Modem Kontrol Paneli</h1>
+                    <p class="subtitle" id="lbl-app-subtitle">Kolay TTL Sabitleyici & IMEI Değiştirici</p>
+                </div>
+            </div>
+            <div class="header-controls">
+                <div class="lang-selector">
+                    <button id="lang-tr" class="lang-btn active">TR</button>
+                    <button id="lang-en" class="lang-btn">EN</button>
+                </div>
+                <div class="connection-status-badge" id="status-badge">
+                    <span class="status-dot disconnected" id="status-dot"></span>
+                    <span id="status-text">Bağlı Değil</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="dashboard-grid">
+            
+            <!-- Left Panel: Connection and Status -->
+            <div class="grid-col left-col">
+                <!-- Connection Section -->
+                <section class="card glass-card" id="connection-section">
+                    <h2 class="card-title"><i class="fa-solid fa-link icon-accent"></i> <span id="lbl-conn-title">Bağlantı Ayarları</span></h2>
+                    <div class="form-group">
+                        <label for="ip-select" id="lbl-ip-select">Modem IP Adresi Seçin</label>
+                        <select id="ip-select" class="form-control">
+                            <option value="192.168.8.1" id="lbl-opt-default">192.168.8.1 (Varsayılan B618)</option>
+                            <option value="192.168.1.1">192.168.1.1</option>
+                            <option value="custom" id="lbl-opt-custom">Özel IP Adresi Gir...</option>
+                        </select>
+                    </div>
+                    <div class="form-group hidden" id="custom-ip-group">
+                        <label for="custom-ip-input" id="lbl-custom-ip">Özel IP Adresi</label>
+                        <input type="text" id="custom-ip-input" class="form-control" placeholder="Örn: 192.168.0.1">
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" id="btn-connect" class="btn btn-primary btn-ripple">
+                            <i class="fa-solid fa-plug"></i> <span id="lbl-btn-connect">Bağlan</span>
+                        </button>
+                        <button type="button" id="btn-disconnect" class="btn btn-secondary btn-ripple" disabled>
+                            <i class="fa-solid fa-plug-circle-xmark"></i> <span id="lbl-btn-disconnect">Bağlantıyı Kes</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Status Section -->
+                <section class="card glass-card" id="status-section">
+                    <div class="card-header-with-action">
+                        <h2 class="card-title"><i class="fa-solid fa-circle-info icon-accent"></i> <span id="lbl-status-title">Modem Durumu</span></h2>
+                        <button id="btn-refresh-status" class="btn-icon btn-ripple" title="Durumu Güncelle" disabled>
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                        </button>
+                    </div>
+                    <div class="status-grid">
+                        <div class="status-item">
+                            <span class="status-label" id="lbl-status-ip">IP Adresi</span>
+                            <span class="status-val" id="val-connected-ip">-</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label" id="lbl-status-ttl">TTL Değeri</span>
+                            <span class="status-val badge-val" id="val-ttl">-</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label" id="lbl-status-nat">NAT (SPE) Durumu</span>
+                            <span class="status-val badge-val" id="val-nat">-</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Panel: Operations -->
+            <div class="grid-col right-col">
+                <!-- TTL & Control Operations -->
+                <section class="card glass-card" id="actions-section">
+                    <h2 class="card-title"><i class="fa-solid fa-sliders icon-accent"></i> <span id="lbl-actions-title">Hızlı İşlemler</span></h2>
+                    
+                    <!-- TTL Form -->
+                    <div class="action-item-group">
+                        <div class="action-header">
+                            <h3 id="lbl-ttl-fix-title">TTL Sabitle</h3>
+                            <p class="action-desc" id="lbl-ttl-fix-desc">Modem paket geçiş limitini (TTL) sabitleyerek kısıtlamaları aşın.</p>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" id="ttl-input" class="form-control input-small" value="63" min="1" max="255">
+                            <button id="btn-fix-ttl" class="btn btn-accent btn-ripple" disabled>
+                                <i class="fa-solid fa-circle-check"></i> <span id="lbl-btn-fix-ttl">TTL Sabitle</span>
+                            </button>
+                        </div>
+                        <!-- TTL Info Box -->
+                        <div class="info-box-ttl">
+                            <div class="info-box-header" id="btn-toggle-ttl-info">
+                                <span><i class="fa-solid fa-circle-question"></i> <strong id="lbl-ttl-info-header">TTL Nedir ve Hangi Değeri Seçmeliyim?</strong></span>
+                                <i class="fa-solid fa-chevron-down toggle-icon" id="ttl-info-icon"></i>
+                            </div>
+                            <div class="info-box-content hidden" id="ttl-info-content">
+                                <p id="lbl-ttl-info-p1"><strong>TTL Mantığı:</strong> Cihazların varsayılan TTL değeri genellikle 64'tür. Paketler modemden veya bağlı cihazlardan geçerken değeri 1 düşer (örn: 63 olur). Operatör bu düşüşü görerek internetin paylaşıldığını (hotspot) anlar.</p>
+                                <ul class="info-list">
+                                    <li id="lbl-ttl-info-li1"><strong>Sosyal Medya / Instagram / YouTube Paketleri için (Modem):</strong> Modemin kendi TTL değerini <strong>64</strong> olarak sabitleyin. Böylece bilgisayarda gezinirken trafik doğrudan modemden/telefondan geliyormuş gibi algılanır ve sosyal paketlerinizden düşer.</li>
+                                    <li id="lbl-ttl-info-li2"><strong>Operatör Hotspot (Paylaşım) Sınırını Aşmak için:</strong> Modeme bağlı bilgisayar/cihaz trafiğinin hotspot olarak görünmesini engellemek için modemi <strong>64</strong> veya <strong>65</strong> olarak ayarlayın.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-divider"></div>
+
+                    <!-- Unlock and Reboot -->
+                    <div class="action-item-group flex-row">
+                        <div class="action-half">
+                            <h4 id="lbl-unlock-title">Kilit Açma (Unlock)</h4>
+                            <p class="action-desc-small" id="lbl-unlock-desc">Sim kilidini ve şebeke kısıtlamalarını kaldırma komutunu gönderir.</p>
+                            <button id="btn-unlock" class="btn btn-warning btn-block btn-ripple" disabled>
+                                <i class="fa-solid fa-lock-open"></i> <span id="lbl-btn-unlock">Kilidi Aç</span>
+                            </button>
+                        </div>
+                        <div class="action-half">
+                            <h4 id="lbl-reboot-title">Yeniden Başlat</h4>
+                            <p class="action-desc-small" id="lbl-reboot-desc">Ayarların geçerli olması için modemi güvenli şekilde yeniden başlatır.</p>
+                            <button id="btn-reboot" class="btn btn-danger btn-block btn-ripple" disabled>
+                                <i class="fa-solid fa-power-off"></i> <span id="lbl-btn-reboot">Modemi Yeniden Başlat</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- IMEI Changer Section -->
+                <section class="card glass-card" id="imei-section">
+                    <h2 class="card-title"><i class="fa-solid fa-fingerprint icon-accent"></i> <span id="lbl-imei-title">IMEI Değiştir</span></h2>
+                    <div class="action-header">
+                        <p class="action-desc" id="lbl-imei-desc">Modemin IMEI numarasını değiştirin. (Lütfen 15 haneli geçerli bir IMEI girin.)</p>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-with-validation">
+                            <input type="text" id="imei-input" class="form-control" placeholder="Örn: 358294050123456" maxlength="15">
+                            <span class="validation-status" id="imei-validation-msg"></span>
+                        </div>
+                        <button id="btn-change-imei" class="btn btn-accent btn-ripple" disabled>
+                            <i class="fa-solid fa-wrench"></i> <span id="lbl-btn-change-imei">IMEI Güncelle</span>
+                        </button>
+                    </div>
+                    <!-- Legal Warning -->
+                    <div class="legal-warning-box">
+                        <p id="lbl-legal-warning"><i class="fa-solid fa-triangle-exclamation"></i> <strong>YASAL UYARI:</strong> IMEI değiştirme işlemi yalnızca cihazın orijinal IMEI numarasını geri yüklemek (tamir amaçlı) için kullanılmalıdır. Cihazların benzersiz kimlik bilgilerini değiştirmek yasalara aykırı olabilir. Bu işlemin tüm yasal sorumluluğu tamamen kullanıcıya aittir.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Console Section (Full Width) -->
+        <section class="card glass-card console-card">
+            <div class="card-header-with-action">
+                <h2 class="card-title"><i class="fa-solid fa-terminal icon-accent-cyan"></i> <span id="lbl-console-title">ADB İşlem Logları</span></h2>
+                <div class="console-actions">
+                    <button id="btn-kill-server" class="btn btn-text btn-ripple" title="ADB Sunucusunu Durdur">
+                        <i class="fa-solid fa-stop"></i> <span id="lbl-btn-kill-server">Server Durdur</span>
+                    </button>
+                    <button id="btn-clear-console" class="btn btn-text btn-ripple">
+                        <i class="fa-solid fa-trash-can"></i> <span id="lbl-btn-clear-console">Temizle</span>
+                    </button>
+                </div>
+            </div>
+            <div class="console-box" id="console-output">
+                <div class="console-line system-msg" id="lbl-initial-log">[Sistem] Uygulama hazır. İşlem yapmak için lütfen önce modeme bağlanın.</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Script file -->
+    <script src="app.js"></script>
+</body>
+</html>
