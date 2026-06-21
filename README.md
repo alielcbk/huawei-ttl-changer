@@ -23,6 +23,10 @@ This is a web-based local desktop application designed to easily fix TTL values,
     *   **Değer: 64** $\rightarrow$ Sosyal medya (Instagram, YouTube vb.) ve paylaşılamayan paketlerinizi bilgisayarınızda sanki doğrudan modemden giriyormuş gibi kullanmak için.
     *   **Değer: 63** $\rightarrow$ Operatörlerin sadece hotspot (paylaşım) tanımlı paketlerini bilgisayarınızda tüketmek için.
 *   🔧 **IMEI Güncelleme (IMEI Changer):** Cihazın orijinal kimliğini tamir amaçlı geri yüklemek için 15 haneli form kontrolüyle güvenli IMEI yazma.
+*   ⚠️ Yasal Uyarı (Legal Warning)
+TR: IMEI değiştirme işlemi yalnızca cihazın bozulan veya kaybolan orijinal IMEI numarasını geri yüklemek (tamir amaçlı) için kullanılmalıdır. Cihazların kimlik bilgilerini yasal olmayan yollarla değiştirmek suç teşkil edebilir. Bu işlemin tüm yasal sorumluluğu tamamen kullanıcıya aittir.
+
+EN: The IMEI change process should only be used to restore the original, corrupted, or lost IMEI number of the device (for repair purposes). Altering device identification details illegally may constitute a crime. All legal responsibility belongs to the user.
 *   🔓 **SIM Kilit Açma (Modem Unlock):** Şebeke kısıtlamalarını kaldırma komutlarını tek tıkla gönderme.
 *   🔄 **Modem Yeniden Başlatma:** Ayarların aktif olması için modemi güvenli şekilde yeniden başlatma komutu.
 *   📟 **Canlı ADB Terminali:** Arka planda çalışan ADB işlemlerinin tüm çıktılarını canlı olarak arayüzdeki terminal kutusundan izleme.
@@ -59,8 +63,5 @@ This is a web-based local desktop application designed to easily fix TTL values,
 └── server.js               # Node.js Express ADB API backend sunucusu
 
 
-⚠️ Yasal Uyarı (Legal Warning)
-TR: IMEI değiştirme işlemi yalnızca cihazın bozulan veya kaybolan orijinal IMEI numarasını geri yüklemek (tamir amaçlı) için kullanılmalıdır. Cihazların kimlik bilgilerini yasal olmayan yollarla değiştirmek suç teşkil edebilir. Bu işlemin tüm yasal sorumluluğu tamamen kullanıcıya aittir.
 
-EN: The IMEI change process should only be used to restore the original, corrupted, or lost IMEI number of the device (for repair purposes). Altering device identification details illegally may constitute a crime. All legal responsibility belongs to the user.
 
