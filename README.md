@@ -12,7 +12,7 @@ This is a web-based local desktop application designed to easily fix TTL values,
 ---
 
 ### 🖥️ Arayüz Görseli (Interface Screenshot)
-![Huawei Modem Kontrol Paneli Arayüzü](public/screenshot.png)
+![Huawei Modem Kontrol Paneli Arayüzü](public/app_screenshot.png)
 
 ---
 
