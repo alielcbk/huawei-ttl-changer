@@ -27,12 +27,16 @@ A web-based local desktop application designed to easily fix TTL values, update 
 
 ## 🛠️ Setup & Run
 
-### Requirements
-*   [Node.js](https://nodejs.org/) (Version 16 or higher is recommended)
+### Method 1: Running the Standalone Executable (No Node.js Required)
+1. Download the compiled release folder.
+2. Open the `dist/` directory and double-click `huawei-ttl-changer.exe`.
+3. The server will start and automatically open the control panel in your default web browser at `http://localhost:3000`.
+*(Note: Ensure the `bin/` folder remains in the same directory as the `.exe` file).*
 
-### How to Run
-1. Double-click the `baslat.bat` file in the project folder.
-2. The script will automatically install the required dependencies (Express & Open), start the local backend server, and open your default web browser at `http://localhost:3000`.
+### Method 2: Running from Source (Requires Node.js)
+1. Ensure you have [Node.js](https://nodejs.org/) (version 16 or higher) installed on your system.
+2. Double-click the `baslat.bat` file in the project root directory.
+3. The script will automatically install dependencies, start the backend server, and launch the web interface at `http://localhost:3000`.
 
 ---
 
