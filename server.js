@@ -2,6 +2,7 @@ const express = require('express');
 const { spawn } = require('child_process');
 const path = require('path');
 const fs = require('fs');
+const open = require('open');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -195,9 +196,7 @@ app.post('/api/kill-server', async (req, res) => {
 app.listen(PORT, async () => {
   console.log(`Sunucu http://localhost:${PORT} portunda çalışıyor.`);
   
-  // Dynamically import and open browser
   try {
-    const open = (await import('open')).default;
     await open(`http://localhost:${PORT}`);
   } catch (e) {
     console.log(`Tarayıcı otomatik açılamadı. Lütfen manuel olarak http://localhost:${PORT} adresine gidin.`);
