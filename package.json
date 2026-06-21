@@ -3,12 +3,26 @@
   "version": "1.0.0",
   "description": "Huawei Modem TTL & IMEI Changer GUI",
   "main": "server.js",
+  "bin": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "pkg ."
+  },
+  "pkg": {
+    "assets": [
+      "public/**/*"
+    ],
+    "targets": [
+      "node18-win-x64"
+    ],
+    "outputPath": "dist"
   },
   "dependencies": {
     "express": "^4.19.2",
     "open": "^8.4.2"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  }
 }

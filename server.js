@@ -9,8 +9,11 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Path to the ADB executable
-const adbPath = path.join(__dirname, 'bin', 'adb.exe');
+// Path to the ADB executable (supports packaged execution with pkg)
+const isPackaged = typeof process.pkg !== 'undefined';
+const adbPath = isPackaged
+  ? path.join(path.dirname(process.execPath), 'bin', 'adb.exe')
+  : path.join(__dirname, 'bin', 'adb.exe');
 
 // Helper function to run adb commands
 function runAdb(args, timeoutMs = 0) {
