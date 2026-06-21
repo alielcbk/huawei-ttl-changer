@@ -1,8 +1,15 @@
 # 📡 Huawei Modem Kolay TTL & IMEI Değiştirici (Control Panel)
 
+[![Uygulamayı İndir](https://img.shields.io/badge/%E2%A4%87%20İndir-Download%20ZIP-success?style=for-the-badge&logo=github)](https://github.com/alielcbk/huawei-ttl-changer/archive/refs/heads/main.zip)
+
 Huawei modemlerinizin TTL değerlerini sabitlemek, IMEI ayarlarını güncellemek ve SIM kilitlerini açmak için modern ve şık bir arayüze sahip web tabanlı yerel yönetim uygulaması.
 
 This is a web-based local desktop application designed to easily fix TTL values, update IMEI settings (for repair purposes), and unlock SIM locks on Huawei modems.
+
+---
+
+### 🖥️ Arayüz Görseli (Interface Screenshot)
+![Huawei Modem Kontrol Paneli Arayüzü](public/screenshot.png)
 
 ---
 
@@ -41,8 +48,16 @@ This is a web-based local desktop application designed to easily fix TTL values,
 ├── public/
 │   ├── index.html          # Türkçe ve İngilizce uyumlu ana arayüz dosyası
 │   ├── style.css           # Premium Glassmorphism CSS tasarımı
-│   └── app.js              # Dil değiştirme, form doğrulama ve API kontrol kodları
+│   ├── app.js              # Dil değiştirme, form doğrulama ve API kontrol kodları
+│   └── screenshot.png      # Arayüz ekran görüntüsü
 ├── .gitignore              # Git tarafından izlenmeyecek dosyalar listesi
 ├── baslat.bat              # Tek tıkla otomatik modül yükleme ve çalıştırma betiği
 ├── package.json            # Proje bağımlılıkları (Express, Open)
 └── server.js               # Node.js Express ADB API backend sunucusu
+
+
+⚠️ Yasal Uyarı (Legal Warning)
+TR: IMEI değiştirme işlemi yalnızca cihazın bozulan veya kaybolan orijinal IMEI numarasını geri yüklemek (tamir amaçlı) için kullanılmalıdır. Cihazların kimlik bilgilerini yasal olmayan yollarla değiştirmek suç teşkil edebilir. Bu işlemin tüm yasal sorumluluğu tamamen kullanıcıya aittir.
+
+EN: The IMEI change process should only be used to restore the original, corrupted, or lost IMEI number of the device (for repair purposes). Altering device identification details illegally may constitute a crime. All legal responsibility belongs to the user.
+
